@@ -1,0 +1,12 @@
+.anur-hero-widget {
+	max-width: 100%;
+}
+
+.anur-hero-widget .anur-hero-card {
+	background-color: #214f39;
+}
+
+.anur-hero-widget .anur-hero-brochure,
+.anur-hero-widget .anur-hero-action {
+	pointer-events: none;
+}

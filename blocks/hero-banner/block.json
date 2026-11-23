@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-banner",
+	"title": "Hero Banner",
+	"category": "stai-annur",
+	"icon": "cover-image",
+	"description": "Banner utama STAI An-Nur dengan gambar latar, informasi kampus, dan tautan aksi.",
+	"keywords": [ "hero", "banner", "kampus", "stai", "an-nur" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Perguruan Tinggi Islam"
+		},
+		"title": {
+			"type": "string",
+			"default": "STAI An-Nur"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "KH. M. Badruddin"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Kampus yang memadukan pendidikan akademik, nilai keislaman, dan pembentukan karakter untuk mempersiapkan generasi masa depan."
+		},
+		"statNumber": {
+			"type": "string",
+			"default": "6+"
+		},
+		"statDescription": {
+			"type": "string",
+			"default": "Keunggulan Kuliah di Kampus Kami"
+		},
+		"backgroundUrl": {
+			"type": "string",
+			"default": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb.webp"
+		},
+		"backgroundId": {
+			"type": "number"
+		},
+		"brochureText": {
+			"type": "string",
+			"default": "Unduh Brosur"
+		},
+		"brochureUrl": {
+			"type": "string",
+			"default": "https://staiannurmalang.ac.id/wp-content/uploads/2026/08/brosur-STAI.AN-NUR_2026.pdf"
+		},
+		"contactUrl": {
+			"type": "string",
+			"default": "https://api.whatsapp.com/send/?phone=6285755983508&text&type=phone_number&app_absent=0"
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

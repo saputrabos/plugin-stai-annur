@@ -1,0 +1,439 @@
+.anur-hero-widget,
+.anur-hero-widget * {
+	box-sizing: border-box;
+}
+
+.anur-hero-widget {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Inter, Arial, sans-serif;
+}
+
+.anur-hero-wrapper {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+.anur-hero-card {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	width: 100%;
+	max-width: 1700px;
+	height: 620px;
+	border-radius: 34px;
+	background-color: #214f39;
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .48) 28%, rgba(0, 0, 0, .16) 62%, rgba(0, 0, 0, .25) 100%);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 0 24px 70px rgba(0, 0, 0, .16);
+}
+
+.anur-hero-widget .anur-hero-card,
+.anur-hero-widget .anur-hero-card * {
+	font-family: Inter, Arial, sans-serif;
+}
+
+.anur-hero-card::before {
+	position: absolute;
+	z-index: 0;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .48) 28%, rgba(0, 0, 0, .16) 62%, rgba(0, 0, 0, .25) 100%);
+	content: "";
+	pointer-events: none;
+}
+
+.anur-hero-card::after {
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 230px;
+	background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, .22) 45%, rgba(0, 0, 0, .48) 100%);
+	content: "";
+	pointer-events: none;
+}
+
+.anur-hero-card > * {
+	position: absolute;
+	z-index: 2;
+}
+
+.anur-hero-label {
+	top: 45px;
+	left: 42px;
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	padding: 9px 15px;
+	border: 1px solid rgba(255, 255, 255, .24);
+	border-radius: 50px;
+	background: rgba(255, 255, 255, .12);
+	backdrop-filter: blur(12px);
+	color: rgba(255, 255, 255, .94);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .3px;
+}
+
+.anur-hero-label svg {
+	width: 14px;
+	height: 14px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.7;
+}
+
+.anur-hero-widget .anur-hero-card .anur-hero-title {
+	top: 125px;
+	left: 42px;
+	width: calc(100% - 84px);
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-size: clamp(42px, 6vw, 88px);
+	font-weight: 800;
+	letter-spacing: -3.5px;
+	line-height: .98;
+	overflow-wrap: normal;
+	word-break: normal;
+	text-shadow: 0 4px 18px rgba(0, 0, 0, .24);
+}
+
+.anur-hero-title span {
+	color: rgba(255, 255, 255, .68);
+}
+
+.anur-hero-subtitle {
+	top: 315px;
+	left: 45px;
+	max-width: 50%;
+	margin: 0;
+	color: rgba(255, 255, 255, .78);
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1.65;
+}
+
+.anur-hero-highlight {
+	top: 390px;
+	left: 42px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 14px 18px;
+	border: 1px solid rgba(255, 255, 255, .18);
+	border-radius: 18px;
+	background: rgba(255, 255, 255, .1);
+	backdrop-filter: blur(12px);
+}
+
+.anur-hero-number {
+	display: block;
+	margin: 0;
+	color: #fff;
+	font-size: 32px;
+	font-weight: 700;
+	letter-spacing: -1.2px;
+	line-height: 1;
+}
+
+.anur-hero-description {
+	display: block;
+	margin: 0;
+	color: rgba(255, 255, 255, .82);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.anur-hero-actions {
+	right: 28px;
+	bottom: 25px;
+	left: 28px;
+	display: flex;
+	height: 70px;
+	align-items: center;
+	gap: 10px;
+}
+
+.anur-hero-brochure,
+.anur-hero-action {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: transform .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.anur-hero-brochure {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	height: 64px;
+	gap: 12px;
+	border: 1px solid rgba(255, 255, 255, .7);
+	border-radius: 18px;
+	background: rgba(255, 255, 255, .95);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, .14);
+	color: #333;
+	font-size: 14px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.anur-hero-brochure svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.anur-hero-brochure:hover {
+	transform: translateY(-3px);
+	background: #fff;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+	color: #333;
+}
+
+.anur-hero-action {
+	flex: 0 0 64px;
+	width: 64px;
+	height: 64px;
+	border: 1px solid rgba(255, 255, 255, .24);
+	border-radius: 18px;
+	background: rgba(255, 255, 255, .12);
+	backdrop-filter: blur(12px);
+	color: #fff;
+}
+
+.anur-hero-action svg {
+	width: 19px;
+	height: 19px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.anur-hero-action:hover {
+	transform: translateY(-3px);
+	border-color: rgba(255, 255, 255, .45);
+	background: rgba(255, 255, 255, .22);
+	color: #fff;
+}
+
+@media (min-width: 1400px) {
+	.anur-hero-card {
+		height: 650px;
+	}
+
+	.anur-hero-widget .anur-hero-card .anur-hero-title {
+		top: 125px;
+		font-size: 90px;
+	}
+
+	.anur-hero-subtitle {
+		top: 320px;
+		font-size: 16px;
+	}
+
+	.anur-hero-highlight {
+		top: 405px;
+	}
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+	.anur-hero-card {
+		height: 520px;
+		border-radius: 30px;
+	}
+
+	.anur-hero-label {
+		top: 25px;
+		left: 30px;
+	}
+
+	.anur-hero-widget .anur-hero-card .anur-hero-title {
+		top: 105px;
+		left: 30px;
+		width: calc(100% - 60px);
+		font-size: clamp(38px, 6vw, 62px);
+		letter-spacing: -2.5px;
+	}
+
+	.anur-hero-subtitle {
+		top: 245px;
+		left: 32px;
+		max-width: 390px;
+		font-size: 13px;
+	}
+
+	.anur-hero-highlight {
+		top: 315px;
+		left: 30px;
+		padding: 12px 15px;
+	}
+
+	.anur-hero-number {
+		font-size: 28px;
+	}
+
+	.anur-hero-description {
+		font-size: 11px;
+	}
+
+	.anur-hero-actions {
+		right: 20px;
+		bottom: 18px;
+		left: 20px;
+		height: 62px;
+	}
+
+	.anur-hero-brochure,
+	.anur-hero-action {
+		height: 58px;
+	}
+
+	.anur-hero-brochure {
+		font-size: 13px;
+	}
+
+	.anur-hero-action {
+		flex-basis: 58px;
+		width: 58px;
+		border-radius: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+	.anur-hero-card {
+		max-width: 100%;
+		height: 424px;
+		border-radius: 35px;
+		background-position: center;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+	}
+
+	.anur-hero-label {
+		top: 25px;
+		left: 18px;
+	}
+
+	.anur-hero-widget .anur-hero-card .anur-hero-title {
+		top: 80px;
+		left: 21px;
+		width: calc(100% - 42px);
+		font-size: 37px;
+		letter-spacing: -.2px;
+		line-height: 1.15;
+	}
+
+	.anur-hero-subtitle {
+		display: none;
+	}
+
+	.anur-hero-highlight {
+		top: 171px;
+		left: 25px;
+		gap: 9px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		backdrop-filter: none;
+	}
+
+	.anur-hero-number {
+		font-size: 32px;
+	}
+
+	.anur-hero-description {
+		font-size: 12px;
+		line-height: 1.35;
+	}
+
+	.anur-hero-actions {
+		right: 5px;
+		bottom: 5px;
+		left: 5px;
+		height: 76px;
+		gap: 7px;
+	}
+
+	.anur-hero-brochure {
+		height: 71px;
+		gap: 12px;
+		border-radius: 40px;
+		font-size: 13px;
+	}
+
+	.anur-hero-action {
+		flex: 0 0 72px;
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+	}
+}
+
+@media (max-width: 380px) {
+	.anur-hero-card {
+		height: 410px;
+		border-radius: 30px;
+	}
+
+	.anur-hero-widget .anur-hero-card .anur-hero-title {
+		top: 73px;
+		left: 18px;
+		width: calc(100% - 36px);
+		font-size: 33px;
+	}
+
+	.anur-hero-highlight {
+		top: 155px;
+		left: 21px;
+	}
+
+	.anur-hero-number {
+		font-size: 29px;
+	}
+
+	.anur-hero-description {
+		font-size: 11px;
+	}
+
+	.anur-hero-actions {
+		gap: 5px;
+	}
+
+	.anur-hero-brochure {
+		height: 67px;
+		gap: 8px;
+		border-radius: 40px;
+		font-size: 12px;
+	}
+
+	.anur-hero-brochure svg {
+		width: 16px;
+		height: 16px;
+	}
+
+	.anur-hero-action {
+		flex-basis: 68px;
+		width: 68px;
+		height: 68px;
+	}
+}
