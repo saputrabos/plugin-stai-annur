@@ -1,0 +1,467 @@
+.anur-building-widget,
+.anur-building-widget *,
+.anur-building-widget *::before,
+.anur-building-widget *::after {
+	box-sizing: border-box;
+}
+
+.anur-building-widget {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #111;
+	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.anur-building-area {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 640px;
+	align-items: center;
+	padding: 0;
+}
+
+.anur-building-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding: 0;
+}
+
+.anur-building-slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: max-content;
+	height: 100%;
+	align-items: center;
+	gap: 20px;
+	padding: 0;
+	transition: transform .65s cubic-bezier(.22, .61, .36, 1);
+	will-change: transform;
+}
+
+.anur-building-card {
+	position: relative;
+	display: block;
+	flex: 0 0 30vw;
+	width: 30vw;
+	min-width: 300px;
+	max-width: 450px;
+	height: 500px;
+	overflow: hidden;
+	padding: 0;
+	border: 0;
+	border-radius: 17px;
+	background: #e9edf0;
+	color: #fff;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	transform: scale(.97);
+	opacity: .88;
+	filter: saturate(.92);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+	transition: height .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1), opacity .5s ease, filter .5s ease, box-shadow .5s ease;
+}
+
+.anur-building-card:focus-visible,
+.anur-building-nav:focus-visible,
+.anur-location-button:focus-visible {
+	outline: 3px solid #feba00;
+	outline-offset: 3px;
+}
+
+.anur-building-card:not(.anur-building-active) {
+	height: 500px;
+	transform: scale(.97);
+	opacity: .82;
+}
+
+.anur-building-card.anur-building-active {
+	z-index: 5;
+	height: 600px;
+	max-height: 600px;
+	transform: scale(1);
+	opacity: 1;
+	filter: saturate(1);
+}
+
+.anur-building-card img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	object-fit: cover;
+	object-position: center;
+	transition: transform .7s ease;
+}
+
+.anur-building-card:not(.anur-building-active):hover img {
+	transform: scale(1.04);
+}
+
+.anur-building-image-placeholder {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: #e9edf0;
+	color: #68717d;
+	font-size: 15px;
+	text-align: center;
+}
+
+.anur-building-overlay {
+	position: absolute;
+	inset: 0;
+	padding: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .4) 28%, rgba(0, 0, 0, .08) 60%, transparent 82%);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .45s ease;
+}
+
+.anur-building-card.anur-building-active .anur-building-overlay {
+	opacity: 1;
+}
+
+.anur-building-info {
+	position: absolute;
+	z-index: 4;
+	right: 28px;
+	bottom: 30px;
+	left: 28px;
+	padding: 0;
+	color: #fff;
+	opacity: 0;
+	transform: translateY(12px);
+	pointer-events: none;
+	transition: opacity .45s ease, transform .45s ease;
+}
+
+.anur-building-card.anur-building-active .anur-building-info {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.anur-building-name {
+	padding: 0;
+	font-size: 30px;
+	font-weight: 800;
+	letter-spacing: -1px;
+	line-height: 1.05;
+	text-shadow: 0 3px 12px rgba(0, 0, 0, .35);
+}
+
+.anur-building-location {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-top: 10px;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.2;
+	opacity: .95;
+}
+
+.anur-building-location svg {
+	flex: 0 0 14px;
+	width: 14px;
+	height: 14px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.anur-building-nav {
+	position: absolute;
+	z-index: 30;
+	top: 50%;
+	display: flex;
+	width: 46px;
+	height: 46px;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	transform: translateY(-50%);
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .96);
+	color: #172d4b;
+	box-shadow: 0 5px 18px rgba(0, 0, 0, .12);
+	cursor: pointer;
+	transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.anur-building-prev {
+	left: 18px;
+}
+
+.anur-building-next {
+	right: 18px;
+}
+
+.anur-building-nav svg {
+	width: 19px;
+	height: 19px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+.anur-building-nav:hover {
+	transform: translateY(-50%) scale(1.08);
+	background: #fff;
+	color: #172d4b;
+	box-shadow: 0 8px 22px rgba(0, 0, 0, .16);
+}
+
+.anur-building-nav:active {
+	transform: translateY(-50%) scale(.92);
+}
+
+.anur-campus-location {
+	position: relative;
+	display: flex;
+	width: min(780px, calc(100% - 60px));
+	min-height: 86px;
+	align-items: center;
+	margin: 30px auto;
+	padding: 14px 16px 14px 22px;
+	border: 1px solid rgba(255, 255, 255, .9);
+	border-radius: 15px;
+	background: linear-gradient(135deg, rgba(244, 248, 251, .98), rgba(235, 240, 245, .94));
+	box-shadow: 0 8px 25px rgba(0, 0, 0, .07);
+}
+
+.anur-location-address {
+	flex: 1;
+	min-width: 0;
+	padding: 0 18px 0 0;
+	color: #7b8088;
+	font-size: 14px;
+	letter-spacing: -.1px;
+	line-height: 1.55;
+}
+
+.anur-location-address strong {
+	padding: 0;
+	color: #555b63;
+	font-weight: 700;
+}
+
+.anur-location-button {
+	display: flex;
+	flex: 0 0 50px;
+	width: 50px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: 0;
+	border-radius: 12px;
+	background: linear-gradient(145deg, #ffd902, #ffbb01);
+	color: #fff;
+	text-decoration: none;
+	box-shadow: 0 5px 12px rgba(255, 190, 0, .25);
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.anur-location-button svg {
+	width: 19px;
+	height: 19px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.anur-location-button:hover {
+	transform: translateY(-2px);
+	color: #fff;
+	box-shadow: 0 8px 17px rgba(255, 190, 0, .35);
+}
+
+.anur-building-empty {
+	margin: 16px;
+	color: #68717d;
+	text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.anur-building-area {
+		height: 550px;
+	}
+
+	.anur-building-slider {
+		gap: 18px;
+	}
+
+	.anur-building-card,
+	.anur-building-card:not(.anur-building-active) {
+		flex-basis: 42vw;
+		width: 42vw;
+		min-width: 280px;
+		max-width: 430px;
+		height: 420px;
+	}
+
+	.anur-building-card.anur-building-active {
+		height: 510px;
+		max-height: 510px;
+	}
+
+	.anur-building-info {
+		right: 24px;
+		bottom: 27px;
+		left: 24px;
+	}
+
+	.anur-building-name {
+		font-size: 25px;
+	}
+
+	.anur-building-location {
+		font-size: 13px;
+	}
+
+	.anur-building-nav {
+		width: 42px;
+		height: 42px;
+	}
+
+	.anur-building-prev {
+		left: 14px;
+	}
+
+	.anur-building-next {
+		right: 14px;
+	}
+
+	.anur-campus-location {
+		width: min(720px, calc(100% - 50px));
+		min-height: 78px;
+		margin-top: 26px;
+		padding: 12px 15px 12px 20px;
+	}
+
+	.anur-location-address {
+		padding-right: 14px;
+		font-size: 13px;
+		line-height: 1.5;
+	}
+
+	.anur-location-button {
+		flex-basis: 46px;
+		width: 46px;
+		height: 46px;
+	}
+}
+
+@media (max-width: 767px) {
+	.anur-building-area {
+		height: 410px;
+	}
+
+	.anur-building-slider {
+		gap: 12px;
+	}
+
+	.anur-building-card,
+	.anur-building-card:not(.anur-building-active) {
+		flex-basis: 72vw;
+		width: 72vw;
+		min-width: 72vw;
+		max-width: none;
+		height: 330px;
+	}
+
+	.anur-building-card.anur-building-active {
+		height: 390px;
+		max-height: 390px;
+	}
+
+	.anur-building-info {
+		right: 20px;
+		bottom: 23px;
+		left: 20px;
+	}
+
+	.anur-building-name {
+		font-size: 23px;
+	}
+
+	.anur-building-location {
+		margin-top: 7px;
+		font-size: 11px;
+	}
+
+	.anur-building-nav {
+		width: 38px;
+		height: 38px;
+	}
+
+	.anur-building-prev {
+		left: 9px;
+	}
+
+	.anur-building-next {
+		right: 9px;
+	}
+
+	.anur-campus-location {
+		width: calc(100% - 25px);
+		min-height: 70px;
+		margin-top: 22px;
+		padding: 10px 10px 10px 15px;
+		border-radius: 12px;
+	}
+
+	.anur-location-address {
+		padding: 0 10px 0 0;
+		color: #7b8088;
+		font-size: 10px;
+		line-height: 1.5;
+	}
+
+	.anur-location-address strong {
+		color: #5f646c;
+		font-weight: 700;
+	}
+
+	.anur-location-button {
+		flex-basis: 38px;
+		width: 38px;
+		height: 38px;
+		border-radius: 9px;
+	}
+
+	.anur-location-button svg {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.anur-building-widget *,
+	.anur-building-widget *::before,
+	.anur-building-widget *::after {
+		animation-duration: .01ms !important;
+		transition-duration: .01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

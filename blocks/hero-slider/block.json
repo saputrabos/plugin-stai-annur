@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-slider",
+	"title": "Hero Slider",
+	"category": "stai-annur",
+	"icon": "images-alt2",
+	"description": "Slider gambar gedung STAI An-Nur dengan info lokasi kampus.",
+	"keywords": [ "hero", "slider", "gedung", "kampus", "lokasi" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/gambar-100kb.webp",
+					"imageId": 0,
+					"alt": "Gedung STAI 1",
+					"name": "Gedung STAI 1",
+					"location": "Ponpes An-Nur 2"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/gambar-1-100kb.webp",
+					"imageId": 0,
+					"alt": "Calon Gedung STAI 1",
+					"name": "Calon Gedung STAI 1",
+					"location": "Depan Pom An-Nur"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/gambar-2-100kb.webp",
+					"imageId": 0,
+					"alt": "Calon Gedung STAI 2",
+					"name": "Calon Gedung STAI 2",
+					"location": "Depan Pom An-Nur"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/gambar-3-100kb.webp",
+					"imageId": 0,
+					"alt": "Calon Gedung STAI 3",
+					"name": "Calon Gedung STAI 3",
+					"location": "Depan Pom An-Nur"
+				}
+			]
+		},
+		"addressLine1": {
+			"type": "string",
+			"default": "Jalan Diponegoro IV/262, Bululawang,"
+		},
+		"addressLine2": {
+			"type": "string",
+			"default": "Kabupaten Malang, Jawa Timur 65171"
+		},
+		"mapUrl": {
+			"type": "string",
+			"default": "https://share.google/I15gAvcFNfib4wn4U"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"autoplayDelay": {
+			"type": "number",
+			"default": 3500
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

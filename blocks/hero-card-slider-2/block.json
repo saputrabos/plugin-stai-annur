@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-card-slider-2",
+	"title": "Hero Card Slider 2",
+	"category": "stai-annur",
+	"icon": "welcome-learn-more",
+	"description": "Kartu program studi dalam grid desktop dan slider pada perangkat kecil.",
+	"keywords": [ "program", "studi", "kartu", "slider", "kampus" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Program Studi"
+		},
+		"moreText": {
+			"type": "string",
+			"default": "See all"
+		},
+		"moreUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1679673678968-72ad247fcd4c?q=80&w=1170&auto=format&fit=crop",
+					"imageId": 0,
+					"alt": "Manajemen Pendidikan Islam",
+					"name": "Manajemen Pendidikan Islam",
+					"code": "MPI"
+				},
+				{
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1682787494977-d013bb5a8773?q=80&w=1170&auto=format&fit=crop",
+					"imageId": 0,
+					"alt": "Pendidikan Guru Madrasah Ibtidaiyah",
+					"name": "Pendidikan Guru Madrasah Ibtidaiyah",
+					"code": "PGMI"
+				},
+				{
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1664298240645-9d911d5c9f49?q=80&w=1170&auto=format&fit=crop",
+					"imageId": 0,
+					"alt": "Ekonomi Syariah",
+					"name": "Ekonomi Syariah",
+					"code": "ES"
+				}
+			]
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

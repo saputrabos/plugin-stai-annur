@@ -1,0 +1,7 @@
+.anur-registration-hero {
+	max-width: 100%;
+}
+
+.anur-registration-hero .anur-registration-button {
+	pointer-events: none;
+}

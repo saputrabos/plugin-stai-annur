@@ -1,0 +1,345 @@
+.stai-program-study-widget,
+.stai-program-study-widget *,
+.stai-program-study-widget *::before,
+.stai-program-study-widget *::after {
+	box-sizing: border-box;
+}
+
+.stai-program-study-widget {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 24px;
+	color: #171717;
+	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.stai-program-study-header {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 14px;
+	padding: 0;
+}
+
+.stai-program-study-widget .stai-program-study-title {
+	margin: 0;
+	padding: 0;
+	color: #172d4b;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.stai-program-study-more {
+	display: inline-flex;
+	min-height: 30px;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #777;
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	transition: color .2s ease, opacity .2s ease;
+}
+
+.stai-program-study-more:hover {
+	color: #222;
+	text-decoration: underline;
+}
+
+.stai-program-study-more:focus-visible {
+	outline: 2px solid #172d4b;
+	outline-offset: 3px;
+}
+
+.stai-program-study-slider {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	gap: 16px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	margin: 0;
+	padding: 3px 2px 10px;
+	scrollbar-width: none;
+	cursor: grab;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-overflow-scrolling: touch;
+	touch-action: pan-x;
+}
+
+.stai-program-study-slider::-webkit-scrollbar {
+	display: none;
+}
+
+.stai-program-study-slider.dragging {
+	cursor: grabbing;
+	scroll-behavior: auto;
+}
+
+.stai-program-study-card {
+	display: flex;
+	flex: 0 0 270px;
+	width: 270px;
+	height: 82px;
+	align-items: center;
+	gap: 10px;
+	overflow: hidden;
+	margin: 0;
+	padding: 5px;
+	border-radius: 18px;
+	background: #fafafa;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .04);
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.stai-program-study-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.stai-program-study-card > img,
+.stai-program-study-image-placeholder {
+	display: block;
+	flex: 0 0 72px;
+	width: 72px;
+	min-width: 72px;
+	height: 72px;
+	min-height: 72px;
+	border-radius: 14px;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.stai-program-study-image-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	background: #e9edf0;
+	color: #6f7782;
+	font-size: 10px;
+	text-align: center;
+}
+
+.stai-program-study-info {
+	min-width: 0;
+	flex: 1;
+	padding-right: 5px;
+}
+
+.stai-program-study-name {
+	display: -webkit-box;
+	overflow: hidden;
+	margin: 0 0 4px;
+	padding: 0;
+	color: #222;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 16px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+}
+
+.stai-program-study-code {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin: 0;
+	padding: 0;
+	color: #999;
+	font-size: 10px;
+	line-height: 13px;
+}
+
+.stai-program-study-code svg {
+	flex: 0 0 12px;
+	width: 12px;
+	height: 12px;
+	fill: none;
+	stroke: #172d4b;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.5;
+}
+
+.stai-program-study-empty {
+	margin: 0;
+	padding: 20px;
+	color: #777;
+}
+
+@media (min-width: 1025px) {
+	.stai-program-study-slider {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+		overflow: visible;
+		padding: 3px 2px 6px;
+		cursor: default;
+		user-select: auto;
+		-webkit-user-select: auto;
+		touch-action: auto;
+	}
+
+	.stai-program-study-card {
+		width: 100%;
+		min-width: 0;
+		height: 78px;
+		flex: none;
+		gap: 10px;
+		padding: 5px;
+		border-radius: 15px;
+	}
+
+	.stai-program-study-card > img,
+	.stai-program-study-image-placeholder {
+		flex-basis: 68px;
+		width: 68px;
+		min-width: 68px;
+		height: 68px;
+		min-height: 68px;
+		border-radius: 12px;
+	}
+
+	.stai-program-study-info {
+		min-width: 0;
+		flex: 1;
+		padding-right: 6px;
+	}
+
+	.stai-program-study-name {
+		font-size: 13px;
+		line-height: 16px;
+	}
+
+	.stai-program-study-code {
+		font-size: 10px;
+		line-height: 13px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.stai-program-study-widget {
+		max-width: 100%;
+		padding: 20px;
+	}
+
+	.stai-program-study-widget .stai-program-study-title {
+		font-size: 18px;
+	}
+
+	.stai-program-study-more {
+		font-size: 12px;
+	}
+
+	.stai-program-study-slider {
+		gap: 13px;
+	}
+
+	.stai-program-study-card {
+		flex-basis: 225px;
+		width: 225px;
+		height: 76px;
+		gap: 9px;
+	}
+
+	.stai-program-study-card > img,
+	.stai-program-study-image-placeholder {
+		flex-basis: 66px;
+		width: 66px;
+		min-width: 66px;
+		height: 66px;
+		min-height: 66px;
+		border-radius: 13px;
+	}
+
+	.stai-program-study-name {
+		font-size: 12px;
+		line-height: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.stai-program-study-widget {
+		width: 100%;
+		max-width: 430px;
+		margin: 0 auto;
+		padding: 10px 8px 15px;
+	}
+
+	.stai-program-study-header {
+		width: 100%;
+		margin-bottom: 12px;
+		padding: 0;
+	}
+
+	.stai-program-study-widget .stai-program-study-title {
+		font-size: 17px;
+	}
+
+	.stai-program-study-more {
+		min-height: 28px;
+		font-size: 12px;
+	}
+
+	.stai-program-study-slider {
+		width: 100%;
+		gap: 10px;
+		padding: 2px 2px 8px;
+	}
+
+	.stai-program-study-card {
+		flex-basis: 190px;
+		width: 190px;
+		height: 66px;
+		gap: 8px;
+		padding: 5px;
+		border-radius: 16px;
+	}
+
+	.stai-program-study-card > img,
+	.stai-program-study-image-placeholder {
+		flex-basis: 56px;
+		width: 56px;
+		min-width: 56px;
+		height: 56px;
+		min-height: 56px;
+		border-radius: 12px;
+	}
+
+	.stai-program-study-name {
+		font-size: 10px;
+		line-height: 13px;
+	}
+
+	.stai-program-study-code {
+		font-size: 9px;
+		line-height: 12px;
+	}
+}
+
+@media (max-width: 380px) {
+	.stai-program-study-widget {
+		padding: 8px 6px 12px;
+	}
+
+	.stai-program-study-card {
+		flex-basis: 180px;
+		width: 180px;
+	}
+}

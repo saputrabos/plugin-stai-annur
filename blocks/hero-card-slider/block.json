@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-card-slider",
+	"title": "Hero Card Slider",
+	"category": "stai-annur",
+	"icon": "slides",
+	"description": "Slider satu kartu per slide untuk menampilkan keunggulan STAI An-Nur.",
+	"keywords": [ "hero", "card", "slider", "keunggulan", "kampus" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Keunggulan Kami"
+		},
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/1.-Dosen-Kompeten.png",
+					"imageId": 0,
+					"alt": "Dosen Kompeten",
+					"name": "Dosen Kompeten",
+					"detail": "Berpengalaman"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/3.-linhkungan-islami.png",
+					"imageId": 0,
+					"alt": "Lingkungan Kampus Islami",
+					"name": "Lingkungan Kampus Islami",
+					"detail": "Nyaman|Kondusif"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/5.-jaringan.png",
+					"imageId": 0,
+					"alt": "Jaringan Luas",
+					"name": "Jaringan Luas",
+					"detail": "Peluang Karir Terbuka"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/2.-kurikulum.png",
+					"imageId": 0,
+					"alt": "Kurikulum Berbasis OBE",
+					"name": "Kurikulum Berbasis OBE",
+					"detail": "Nilai-Nilai Islam"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/4.-soft-skill.png",
+					"imageId": 0,
+					"alt": "Pengembangan Soft Skill",
+					"name": "Pengembangan Soft Skill",
+					"detail": "Kewirausahaan"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/6.-jaringan.png",
+					"imageId": 0,
+					"alt": "Biaya Perkuliahan Terjangkau",
+					"name": "Biaya Perkuliahan Terjangkau",
+					"detail": "Harga Terbaik"
+				},
+				{
+					"imageUrl": "https://annur2.net/wp-content/uploads/2026/08/7.-beasiswa.png",
+					"imageId": 0,
+					"alt": "Berbagai Macam Beasiswa",
+					"name": "Berbagai Macam Beasiswa",
+					"detail": "Beasiswa Terbuka Bagi Umum"
+				}
+			]
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

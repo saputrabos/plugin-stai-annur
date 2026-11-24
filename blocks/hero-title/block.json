@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-title",
+	"title": "Hero Title",
+	"category": "stai-annur",
+	"icon": "heading",
+	"description": "Judul pengantar STAI An-Nur dengan label dan deskripsi yang dapat diatur.",
+	"keywords": [ "hero", "title", "heading", "kampus", "intro" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Raih Sukses Bersama Kami"
+		},
+		"titleFirst": {
+			"type": "string",
+			"default": "Kampus Generasi"
+		},
+		"titleSecond": {
+			"type": "string",
+			"default": "Shalihin dan Shalihat"
+		},
+		"description": {
+			"type": "string",
+			"default": "Membentuk generasi unggul berilmu, berakhlak, berkarakter, dan siap menghadapi tantangan masa depan dengan penuh percaya diri."
+		},
+		"showLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

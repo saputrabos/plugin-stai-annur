@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "stai-annur/hero-banner-2",
+	"title": "Hero Banner 2",
+	"category": "stai-annur",
+	"icon": "cover-image",
+	"description": "Banner pendaftaran mahasiswa baru STAI An-Nur.",
+	"keywords": [ "hero", "banner", "pendaftaran", "mahasiswa", "registrasi" ],
+	"textdomain": "stai-annur",
+	"attributes": {
+		"backgroundUrl": {
+			"type": "string",
+			"default": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb3.webp"
+		},
+		"backgroundId": {
+			"type": "number"
+		},
+		"label": {
+			"type": "string",
+			"default": "Pendaftaran Mahasiswa Baru"
+		},
+		"titleFirst": {
+			"type": "string",
+			"default": "Daftar Sekarang & Wujudkan"
+		},
+		"titleSecond": {
+			"type": "string",
+			"default": "Masa Depan Gemilang"
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Daftar Sekarang Di sini!"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "https://docs.google.com/forms/d/e/1FAIpQLSc89ZY79fMb3TGnt0yHHgTY08RMh8bqcIJyUk76lzlpgaQmxw/viewform"
+		},
+		"ctaAriaLabel": {
+			"type": "string",
+			"default": "Lihat informasi alur pendaftaran mahasiswa"
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

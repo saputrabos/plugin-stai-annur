@@ -1,0 +1,225 @@
+.anur-campus-intro,
+.anur-campus-intro *,
+.anur-campus-intro *::before,
+.anur-campus-intro *::after {
+	box-sizing: border-box;
+}
+
+.anur-campus-intro {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	min-height: 272px;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+.anur-campus-content {
+	position: relative;
+	z-index: 5;
+	width: 100%;
+	max-width: 1050px;
+	margin: 0 auto;
+	padding: 50px 0px 50px 0px;
+	text-align: center;
+}
+
+.anur-campus-intro .anur-campus-label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	margin: 0 0 17px;
+	padding: 0;
+	color: #013797;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.anur-campus-label-star {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	transform: translateY(-1px);
+	color: #feba00;
+	font-size: 17px;
+	line-height: 1;
+}
+
+.anur-campus-intro .anur-campus-title {
+	display: block;
+	width: 100%;
+	margin: 0 0 16px;
+	padding: 0;
+	color: #172d4b;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 46px;
+	font-weight: 800;
+	letter-spacing: -1.2px;
+	line-height: 1.12;
+	text-align: center;
+}
+
+.anur-campus-title-dark,
+.anur-campus-title-highlight {
+	color: #172d4b;
+}
+
+.anur-campus-intro .anur-campus-description {
+	display: block;
+	width: 100%;
+	max-width: 950px;
+	margin: 0 auto;
+	padding: 0;
+	color: #4a5565;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 1.55;
+	text-align: center;
+}
+
+.anur-campus-shape {
+	position: absolute;
+	display: block;
+	pointer-events: none;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .38);
+}
+
+.anur-campus-shape-1 {
+	top: -205px;
+	left: -205px;
+	width: 430px;
+	height: 430px;
+}
+
+.anur-campus-shape-2 {
+	bottom: -180px;
+	left: -145px;
+	width: 280px;
+	height: 280px;
+	background: rgba(255, 255, 255, .3);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.anur-campus-intro {
+		min-height: 260px;
+		padding: 0;
+	}
+
+	.anur-campus-content {
+		max-width: 900px;
+		padding: 0;
+	}
+
+	.anur-campus-intro .anur-campus-label {
+		margin-bottom: 65px;
+		padding: 0;
+		font-size: 15px;
+		letter-spacing: .8px;
+	}
+
+	.anur-campus-label-star {
+		padding: 0;
+		font-size: 16px;
+	}
+
+	.anur-campus-intro .anur-campus-title {
+		padding: 0;
+		font-size: 40px;
+		letter-spacing: -.8px;
+		line-height: 1.15;
+	}
+
+	.anur-campus-intro .anur-campus-description {
+		max-width: 850px;
+		padding: 0;
+		font-size: 19px;
+		line-height: 1.55;
+	}
+
+	.anur-campus-shape-1 {
+		top: -180px;
+		left: -180px;
+		width: 360px;
+		height: 360px;
+	}
+
+	.anur-campus-shape-2 {
+		bottom: -160px;
+		left: -125px;
+		width: 240px;
+		height: 240px;
+	}
+}
+
+@media (max-width: 767px) {
+	.anur-campus-intro {
+		width: 100%;
+		min-height: auto;
+		align-items: center;
+		padding: 0;
+	}
+
+	.anur-campus-content {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		padding: 30px 0 40px 0px;
+		text-align: center;
+	}
+
+	.anur-campus-intro .anur-campus-label {
+		margin-bottom: 15px;
+		padding: 0;
+		font-size: 13px;
+		letter-spacing: .7px;
+		line-height: 1.2;
+	}
+
+	.anur-campus-label-star {
+		padding: 0;
+		transform: translateY(-1px);
+		font-size: 14px;
+	}
+
+	.anur-campus-intro .anur-campus-title {
+		width: 100%;
+		margin-bottom: 14px;
+		padding: 0;
+		font-size: 26px;
+		letter-spacing: -.5px;
+		line-height: 1.2;
+	}
+
+	.anur-campus-intro .anur-campus-description {
+		width: 100%;
+		max-width: 500px;
+		margin: 0 auto;
+		padding: 0;
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	.anur-campus-shape-1 {
+		top: -150px;
+		left: -170px;
+		width: 280px;
+		height: 280px;
+	}
+
+	.anur-campus-shape-2 {
+		bottom: -140px;
+		left: -130px;
+		width: 200px;
+		height: 200px;
+	}
+}

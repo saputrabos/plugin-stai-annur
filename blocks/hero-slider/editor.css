@@ -1,0 +1,11 @@
+.anur-building-widget {
+	max-width: 100%;
+}
+
+.anur-building-widget .anur-building-card {
+	pointer-events: none;
+}
+
+.anur-building-widget .anur-building-nav {
+	pointer-events: none;
+}
