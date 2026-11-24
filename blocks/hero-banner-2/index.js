@@ -80,6 +80,7 @@
 									setAttributes( {
 										backgroundId: media.id,
 										backgroundUrl: media.url,
+										backgroundSizes: {},
 									} );
 								},
 								allowedTypes: [ 'image' ],
@@ -105,7 +106,7 @@
 										variant: 'link',
 										isDestructive: true,
 										onClick: function () {
-											setAttributes( { backgroundId: 0, backgroundUrl: '' } );
+											setAttributes( { backgroundId: 0, backgroundUrl: '', backgroundSizes: {} } );
 										},
 									},
 									__( 'Hapus gambar', 'stai-annur' )

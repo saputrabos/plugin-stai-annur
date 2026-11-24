@@ -42,7 +42,8 @@
 		"align": [ "wide", "full" ],
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		}
 	},
 	"editorScript": "file:./index.js",

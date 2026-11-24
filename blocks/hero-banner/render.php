@@ -17,6 +17,12 @@ $attributes = wp_parse_args(
 		'statNumber'      => '6+',
 		'statDescription' => 'Keunggulan Kuliah di Kampus Kami',
 		'backgroundUrl'   => '',
+		'backgroundId'    => 0,
+		'backgroundSizes' => array(),
+		'imageSize'       => 'large',
+		'useCustomImageSize' => false,
+		'customImageWidth'   => 147,
+		'customImageHeight'  => 98,
 		'brochureText'    => 'Unduh Brosur',
 		'brochureUrl'     => '',
 		'contactUrl'      => '',
@@ -27,15 +33,27 @@ $title       = sanitize_text_field( $attributes['title'] );
 $title_accent = sanitize_text_field( $attributes['titleAccent'] );
 $share_text  = trim( $title . ' ' . $title_accent );
 $share_url   = 'https://wa.me/?text=' . rawurlencode( $share_text . "\n\n" . get_permalink() );
-$style       = '';
-
-if ( ! empty( $attributes['backgroundUrl'] ) ) {
-	$style = 'background-image: url(' . esc_url( $attributes['backgroundUrl'] ) . ');';
-}
+$background_image = stai_annur_get_responsive_image_markup(
+	absint( $attributes['backgroundId'] ),
+	$attributes['backgroundUrl'],
+	$attributes['imageSize'],
+	array(
+		'class'         => 'anur-hero-background',
+		'alt'           => '',
+		'loading'       => 'eager',
+		'fetchpriority' => 'high',
+		'decoding'      => 'async',
+		'sizes'         => '(max-width: 600px) 100vw, (max-width: 1024px) 100vw, 1700px',
+	),
+	$attributes['backgroundSizes'],
+	! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageWidth'] : 0,
+	! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageHeight'] : 0
+);
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'anur-hero-widget' ) ); ?>>
 	<div class="anur-hero-wrapper">
-		<div class="anur-hero-card" <?php echo $style ? 'style="' . esc_attr( $style ) . '"' : ''; ?>>
+		<div class="anur-hero-card">
+			<?php echo $background_image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<div class="anur-hero-label">
 				<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M3 21h18M5 18h14M6 18V8l6-4 6 4v10M9 10h.01M12 10h.01M15 10h.01M9 14h.01M12 14h.01M15 14h.01M11 21v-4h2v4" /></svg>
 				<span><?php echo esc_html( $attributes['label'] ); ?></span>

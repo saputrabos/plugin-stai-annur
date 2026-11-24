@@ -40,6 +40,37 @@
 		"backgroundId": {
 			"type": "number"
 		},
+		"backgroundSizes": {
+			"type": "object",
+			"default": {
+				"medium_large": {
+					"url": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb-768x596.webp",
+					"width": 768,
+					"height": 596
+				},
+				"full": {
+					"url": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb.webp",
+					"width": 1424,
+					"height": 1105
+				}
+			}
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "large"
+		},
+		"useCustomImageSize": {
+			"type": "boolean",
+			"default": false
+		},
+		"customImageWidth": {
+			"type": "number",
+			"default": 147
+		},
+		"customImageHeight": {
+			"type": "number",
+			"default": 98
+		},
 		"brochureText": {
 			"type": "string",
 			"default": "Unduh Brosur"
@@ -57,7 +88,8 @@
 		"align": [ "wide", "full" ],
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		}
 	},
 	"editorScript": "file:./index.js",

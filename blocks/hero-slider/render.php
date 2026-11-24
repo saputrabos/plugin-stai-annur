@@ -14,9 +14,16 @@ $attributes = wp_parse_args(
 		'mapUrl'         => '',
 		'autoplay'       => true,
 		'autoplayDelay'  => 3500,
+		'imageSize'      => 'large',
+		'useCustomImageSize' => false,
+		'customImageWidth'   => 147,
+		'customImageHeight'  => 98,
 	)
 );
 
+$image_size = stai_annur_sanitize_image_size( $attributes['imageSize'] );
+$custom_image_width = ! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageWidth'] : 0;
+$custom_image_height = ! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageHeight'] : 0;
 $slides = array();
 
 if ( is_array( $attributes['slides'] ) ) {
@@ -26,15 +33,18 @@ if ( is_array( $attributes['slides'] ) ) {
 		}
 
 		$image_url = isset( $slide['imageUrl'] ) && is_string( $slide['imageUrl'] ) ? esc_url( $slide['imageUrl'] ) : '';
+		$image_id  = isset( $slide['imageId'] ) ? absint( $slide['imageId'] ) : 0;
 		$name      = isset( $slide['name'] ) && is_scalar( $slide['name'] ) ? sanitize_text_field( (string) $slide['name'] ) : '';
 		$location  = isset( $slide['location'] ) && is_scalar( $slide['location'] ) ? sanitize_text_field( (string) $slide['location'] ) : '';
 		$alt       = isset( $slide['alt'] ) && is_scalar( $slide['alt'] ) ? sanitize_text_field( (string) $slide['alt'] ) : '';
 
 		$slides[] = array(
-			'imageUrl' => $image_url,
-			'name'     => $name,
-			'location' => $location,
-			'alt'      => $alt ? $alt : $name,
+			'imageUrl'   => $image_url,
+			'imageId'    => $image_id,
+			'imageSizes' => isset( $slide['imageSizes'] ) && is_array( $slide['imageSizes'] ) ? $slide['imageSizes'] : array(),
+			'name'       => $name,
+			'location'   => $location,
+			'alt'        => $alt ? $alt : $name,
 		);
 	}
 }
@@ -78,7 +88,22 @@ if ( $slide_count > 1 ) {
 							aria-label="<?php echo esc_attr( sprintf( __( '%1$s, %2$s', 'stai-annur' ), $slide['name'], $slide['location'] ) ); ?>"
 						>
 							<?php if ( $slide['imageUrl'] ) : ?>
-								<img src="<?php echo esc_url( $slide['imageUrl'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="<?php echo 0 === $index ? 'eager' : 'lazy'; ?>" decoding="async">
+								<?php
+								echo stai_annur_get_responsive_image_markup(
+									$slide['imageId'],
+									$slide['imageUrl'],
+									$image_size,
+									array(
+										'alt'      => $slide['alt'],
+										'loading'  => $index === $active_index ? 'eager' : 'lazy',
+										'decoding' => 'async',
+										'sizes'    => '(max-width: 767px) 72vw, (max-width: 1024px) 42vw, 30vw',
+									),
+									$slide['imageSizes'],
+									$custom_image_width,
+									$custom_image_height
+								); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								?>
 							<?php else : ?>
 								<span class="anur-building-image-placeholder"><?php esc_html_e( 'Gambar gedung belum dipilih', 'stai-annur' ); ?></span>
 							<?php endif; ?>

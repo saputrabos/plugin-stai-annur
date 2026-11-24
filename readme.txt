@@ -18,6 +18,22 @@ Blok saat ini:
 - Hero Card Slider 2: tiga kartu program studi di desktop dan slider geser
   pada tablet atau ponsel, dengan gambar, nama, kode, dan tautan semua program.
 
+Pengaturan gambar:
+- Blok yang menampilkan gambar memiliki pilihan ukuran sumber gambar di panel
+  pengaturan. Pilihan ini berlaku untuk semua gambar dalam widget.
+- Gambar dari Media Library menggunakan ukuran WordPress dan srcset responsif.
+  URL Unsplash dibuatkan variasi srcset. Gambar kampus default memakai varian
+  responsif yang tersedia dari server annur2.net; untuk URL eksternal lain,
+  unggah gambar ke Media Library agar WordPress dapat membuat ukurannya.
+- Opsi ukuran custom memungkinkan lebar dan tinggi sumber diatur sendiri,
+  misalnya 147 x 98 px. Unsplash menghasilkan ukuran tersebut dan varian
+  responsif untuk layar beresolusi tinggi; Media Library memakai ukuran
+  terdekat yang sudah tersedia.
+
+Pengaturan tata letak:
+- Semua blok STAI An-Nur menyediakan pengaturan margin dan padding melalui
+  panel Dimensi pada editor Gutenberg.
+
 Cara menggunakan:
 1. Aktifkan plugin STAI An-Nur dari menu Plugins di WordPress.
 2. Buka editor Gutenberg dan cari blok STAI An-Nur pada kategori "STAI An-Nur".

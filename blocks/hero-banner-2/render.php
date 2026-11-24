@@ -9,6 +9,12 @@ $attributes = wp_parse_args(
 	$attributes,
 	array(
 		'backgroundUrl' => '',
+		'backgroundId'  => 0,
+		'backgroundSizes' => array(),
+		'imageSize'     => 'large',
+		'useCustomImageSize' => false,
+		'customImageWidth'   => 147,
+		'customImageHeight'  => 98,
 		'label'         => 'Pendaftaran Mahasiswa Baru',
 		'titleFirst'    => 'Daftar Sekarang & Wujudkan',
 		'titleSecond'   => 'Masa Depan Gemilang',
@@ -18,14 +24,25 @@ $attributes = wp_parse_args(
 	)
 );
 
-$background_style = '';
-
-if ( ! empty( $attributes['backgroundUrl'] ) ) {
-	$background_style = 'background-image: linear-gradient(90deg, rgba(0, 0, 0, .70) 0%, rgba(0, 0, 0, .50) 30%, rgba(0, 0, 0, .18) 65%, rgba(0, 0, 0, .22) 100%), url("' . esc_url( $attributes['backgroundUrl'] ) . '");';
-}
+$background_image = stai_annur_get_responsive_image_markup(
+	absint( $attributes['backgroundId'] ),
+	$attributes['backgroundUrl'],
+	$attributes['imageSize'],
+	array(
+		'class'    => 'anur-registration-background',
+		'alt'      => '',
+		'loading'  => 'lazy',
+		'decoding' => 'async',
+		'sizes'    => '(max-width: 600px) 100vw, (max-width: 1280px) 100vw, 1280px',
+	),
+	$attributes['backgroundSizes'],
+	! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageWidth'] : 0,
+	! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageHeight'] : 0
+);
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'anur-registration-hero' ) ); ?>>
-	<div class="anur-registration-card" <?php echo $background_style ? 'style="' . esc_attr( $background_style ) . '"' : ''; ?>>
+	<div class="anur-registration-card">
+		<?php echo $background_image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<div class="anur-registration-content">
 			<?php if ( ! empty( $attributes['label'] ) ) : ?>
 				<div class="anur-registration-label"><?php echo esc_html( $attributes['label'] ); ?></div>

@@ -10,9 +10,16 @@ $attributes = wp_parse_args(
 	array(
 		'sectionTitle' => 'Artikel Terbaru',
 		'postsToShow'  => 12,
+		'imageSize'    => 'medium_large',
+		'useCustomImageSize' => false,
+		'customImageWidth'   => 147,
+		'customImageHeight'  => 98,
 	)
 );
 
+$image_size    = stai_annur_sanitize_image_size( $attributes['imageSize'] );
+$custom_image_width = ! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageWidth'] : 0;
+$custom_image_height = ! empty( $attributes['useCustomImageSize'] ) ? $attributes['customImageHeight'] : 0;
 $posts_to_show = max( 1, min( 12, (int) $attributes['postsToShow'] ) );
 $query         = new WP_Query(
 	array(
@@ -64,7 +71,6 @@ if ( $post_count > 1 ) {
 					$post_id       = get_the_ID();
 					$post_title    = get_the_title();
 					$thumbnail_id  = get_post_thumbnail_id( $post_id );
-					$thumbnail_url = $thumbnail_id ? get_the_post_thumbnail_url( $post_id, 'large' ) : '';
 					$image_alt     = $thumbnail_id ? get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true ) : '';
 					$categories    = get_the_category( $post_id );
 					$category_name = 'Artikel';
@@ -78,8 +84,24 @@ if ( $post_count > 1 ) {
 					}
 					?>
 					<a class="anur-article-card-link" href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Baca: %s', 'stai-annur' ), $post_title ) ); ?>">
-						<?php if ( $thumbnail_url ) : ?>
-							<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" loading="lazy" decoding="async" draggable="false">
+						<?php if ( $thumbnail_id ) : ?>
+							<?php
+							echo stai_annur_get_responsive_image_markup(
+								$thumbnail_id,
+								'',
+								$image_size,
+								array(
+									'alt'      => $image_alt,
+									'loading'  => 'lazy',
+									'decoding' => 'async',
+									'draggable' => 'false',
+									'sizes'    => '(max-width: 767px) calc(100vw - 48px), 270px',
+								),
+								array(),
+								$custom_image_width,
+								$custom_image_height
+							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							?>
 						<?php else : ?>
 							<span class="anur-article-no-image" aria-hidden="true">
 								<svg viewBox="0 0 24 24" focusable="false"><path d="M4 5h16v14H4zM4 15l4-4 4 4 3-3 5 5M9 9h.01" /></svg>

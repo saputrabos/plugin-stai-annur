@@ -93,6 +93,7 @@
 												{
 													imageUrl: media.url,
 													imageId: media.id,
+													imageSizes: {},
 													alt: media.alt || '',
 												},
 												setAttributes
@@ -124,7 +125,7 @@
 													updateSlide(
 														slides,
 														index,
-														{ imageUrl: '', imageId: 0 },
+														{ imageUrl: '', imageId: 0, imageSizes: {} },
 														setAttributes
 													);
 												},

@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once __DIR__ . '/includes/image-utils.php';
+
 /**
  * Add the plugin's block category to the inserter.
  *
@@ -94,6 +96,24 @@ function stai_annur_register_blocks() {
 	);
 }
 add_action( 'init', 'stai_annur_register_blocks' );
+
+/**
+ * Load shared image-source controls in the block editor.
+ *
+ * @return void
+ */
+function stai_annur_enqueue_image_controls() {
+	$script_path = __DIR__ . '/assets/js/image-controls.js';
+
+	wp_enqueue_script(
+		'stai-annur-image-controls',
+		plugin_dir_url( __FILE__ ) . 'assets/js/image-controls.js',
+		array( 'wp-block-editor', 'wp-components', 'wp-compose', 'wp-element', 'wp-hooks', 'wp-i18n' ),
+		filemtime( $script_path ),
+		true
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'stai_annur_enqueue_image_controls' );
 
 /**
  * Load the plugin's single-post assets.

@@ -16,13 +16,30 @@
 		"postsToShow": {
 			"type": "number",
 			"default": 12
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "medium_large"
+		},
+		"useCustomImageSize": {
+			"type": "boolean",
+			"default": false
+		},
+		"customImageWidth": {
+			"type": "number",
+			"default": 147
+		},
+		"customImageHeight": {
+			"type": "number",
+			"default": 98
 		}
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		}
 	},
 	"editorScript": "file:./index.js",

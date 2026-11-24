@@ -16,6 +16,37 @@
 		"backgroundId": {
 			"type": "number"
 		},
+		"backgroundSizes": {
+			"type": "object",
+			"default": {
+				"medium_large": {
+					"url": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb3-768x596.webp",
+					"width": 768,
+					"height": 596
+				},
+				"full": {
+					"url": "https://annur2.net/wp-content/uploads/2026/08/kampus_100kb3.webp",
+					"width": 1280,
+					"height": 993
+				}
+			}
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "large"
+		},
+		"useCustomImageSize": {
+			"type": "boolean",
+			"default": false
+		},
+		"customImageWidth": {
+			"type": "number",
+			"default": 147
+		},
+		"customImageHeight": {
+			"type": "number",
+			"default": 98
+		},
 		"label": {
 			"type": "string",
 			"default": "Pendaftaran Mahasiswa Baru"
@@ -45,7 +76,8 @@
 		"align": [ "wide", "full" ],
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		}
 	},
 	"editorScript": "file:./index.js",

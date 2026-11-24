@@ -66,13 +66,30 @@
 					"detail": "Beasiswa Terbuka Bagi Umum"
 				}
 			]
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "thumbnail"
+		},
+		"useCustomImageSize": {
+			"type": "boolean",
+			"default": false
+		},
+		"customImageWidth": {
+			"type": "number",
+			"default": 147
+		},
+		"customImageHeight": {
+			"type": "number",
+			"default": 98
 		}
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
 		"html": false,
 		"spacing": {
-			"margin": true
+			"margin": true,
+			"padding": true
 		}
 	},
 	"editorScript": "file:./index.js",

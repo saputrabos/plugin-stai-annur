@@ -86,10 +86,12 @@ get_header();
 						<figure class="anur-featured">
 							<?php
 							the_post_thumbnail(
-								'full',
+								'large',
 								array(
-									'loading'  => 'eager',
-									'decoding' => 'async',
+									'loading'       => 'eager',
+									'fetchpriority' => 'high',
+									'decoding'      => 'async',
+									'sizes'         => '(max-width: 600px) calc(100vw - 28px), (max-width: 1220px) calc(100vw - 40px), 1180px',
 								)
 							);
 							?>
