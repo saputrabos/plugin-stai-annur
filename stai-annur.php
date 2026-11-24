@@ -94,3 +94,54 @@ function stai_annur_register_blocks() {
 	);
 }
 add_action( 'init', 'stai_annur_register_blocks' );
+
+/**
+ * Load the plugin's single-post assets.
+ *
+ * @return void
+ */
+function stai_annur_enqueue_single_post_assets() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	$plugin_url  = plugin_dir_url( __FILE__ );
+	$plugin_path = plugin_dir_path( __FILE__ );
+
+	wp_enqueue_style(
+		'stai-annur-single-post',
+		$plugin_url . 'assets/css/single-post.css',
+		array(),
+		filemtime( $plugin_path . 'assets/css/single-post.css' )
+	);
+
+	wp_enqueue_script(
+		'stai-annur-single-post',
+		$plugin_url . 'assets/js/single-post.js',
+		array(),
+		filemtime( $plugin_path . 'assets/js/single-post.js' ),
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'stai_annur_enqueue_single_post_assets' );
+
+/**
+ * Use the plugin template for standard blog posts.
+ *
+ * @param string $template Current theme template.
+ * @return string
+ */
+function stai_annur_single_post_template( $template ) {
+	if ( ! is_singular( 'post' ) ) {
+		return $template;
+	}
+
+	$plugin_template = plugin_dir_path( __FILE__ ) . 'templates/single-post.php';
+
+	if ( file_exists( $plugin_template ) ) {
+		return $plugin_template;
+	}
+
+	return $template;
+}
+add_filter( 'template_include', 'stai_annur_single_post_template', 99 );
